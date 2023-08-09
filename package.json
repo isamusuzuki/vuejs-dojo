@@ -1,0 +1,32 @@
+{
+  "name": "vuejs-dojo",
+  "version": "1.0.0",
+  "description": "Vue.js 道場",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/create-config": "^0.4.6",
+    "@typescript-eslint/eslint-plugin": "^6.3.0",
+    "@typescript-eslint/parser": "^6.3.0",
+    "@vue/compiler-sfc": "^3.3.4",
+    "css-loader": "^6.8.1",
+    "eslint": "^8.46.0",
+    "eslint-plugin-vue": "^9.17.0",
+    "style-loader": "^3.3.3",
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.1.6",
+    "vue": "^3.3.4",
+    "vue-loader": "^17.2.2",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  }
+}
