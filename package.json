@@ -3,11 +3,9 @@
   "version": "1.0.0",
   "description": "Vue.js 道場",
   "main": "index.js",
-  "directories": {
-    "doc": "doc"
-  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack serve --config=webpack.dev.config.js",
+    "build": "webpack --config=webpack.prod.config.js"
   },
   "keywords": [],
   "author": "",
