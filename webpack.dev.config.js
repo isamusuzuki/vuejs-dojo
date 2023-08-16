@@ -5,6 +5,7 @@ module.exports = {
     mode: 'development',
     entry: {
         avocado: './src/avocado.ts',
+        banana: './src/banana.ts',
     },
     output: {
         path: path.resolve(__dirname, 'public'),
