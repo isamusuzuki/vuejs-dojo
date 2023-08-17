@@ -27,7 +27,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import SimpleCounter from './Components/SimpleCounter.vue'
+import SimpleCounter from './SimpleCounter.vue'
 
 export default defineComponent({
     components: {
