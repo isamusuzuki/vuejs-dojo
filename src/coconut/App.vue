@@ -14,6 +14,12 @@
             </div>
         </div>
     </section>
+    <section class="section">
+        <div class="container">
+            <input-keyword></input-keyword>
+            <output-keyword></output-keyword>
+        </div>
+    </section>
     <svg style="display: none;">
         <defs>
             <symbol id="chevron-left-circle" viewBox="0 0 24 24">
@@ -25,10 +31,14 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import InputKeyword from './InputKeyword.vue'
+import OutputKeyword from './outputKeyword.vue'
 import StoreCounter from './StoreCounter.vue'
 
 export default defineComponent({
     components: {
+        InputKeyword,
+        OutputKeyword,
         StoreCounter,
     },
 })
