@@ -13,22 +13,14 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from 'vue'
-import { useStore } from 'vuex'
-import { key } from './store'
+import { defineComponent } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useStoreCounter } from './store/counter'
 
 export default defineComponent({
     setup() {
-        const store = useStore(key)
-
-        const count = computed(() => store.state.count)
-
-        const increment = () => {
-            store.commit('increment')
-        }
-        const decrement = () => {
-            store.commit('decrement')
-        }
+        const { count }  = storeToRefs(useStoreCounter())
+        const { increment, decrement } = useStoreCounter()
 
         return {
             count,
