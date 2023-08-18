@@ -6,7 +6,8 @@ module.exports = {
     entry: {
         avocado: './src/avocado.ts',
         banana: './src/banana.ts',
-        coconut: './src/coconut.ts'
+        coconut: './src/coconut.ts',
+        daikon: './src/daikon.ts',
     },
     output: {
         path: path.resolve(__dirname, 'public'),

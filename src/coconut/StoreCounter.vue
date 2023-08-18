@@ -12,21 +12,10 @@
     </nav>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { useStoreCounter } from './store/counter'
 
-export default defineComponent({
-    setup() {
-        const { count }  = storeToRefs(useStoreCounter())
-        const { increment, decrement } = useStoreCounter()
-
-        return {
-            count,
-            increment,
-            decrement,
-        }
-    },
-})
+const { count }  = storeToRefs(useStoreCounter())
+const { increment, decrement } = useStoreCounter()
 </script>
