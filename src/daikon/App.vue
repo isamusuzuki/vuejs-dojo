@@ -6,9 +6,10 @@
     </a>
     <section class="section">
         <div class="container">
-            
+            <fake-button></fake-button>
         </div>
     </section>
+    <now-loading></now-loading>
     <svg style="display: none;">
         <defs>
             <symbol id="chevron-left-circle" viewBox="0 0 24 24">
@@ -20,7 +21,13 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import FakeButton from './FakeButton.vue'
+import NowLoading from './NowLoading.vue'
 
 export default defineComponent({
+    components: {
+        FakeButton,
+        NowLoading
+    }
 })
 </script>
