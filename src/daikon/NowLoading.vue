@@ -4,7 +4,7 @@
             class="modal-background"
             style="background-color: rgba(10, 10, 0.6)"
         ></div>
-        <div class="modal-content has-text-centered" style="height: 80px">
+        <div class="modal-content has-text-centered" style="width: 150px; height: 80px;">
             <div class="spinner-box">
                 <div class="pulse-container">
                     <div class="pulse-bubble pulse-bubble-1"></div>
