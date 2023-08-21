@@ -4,27 +4,23 @@
     </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
 import { useStoreFetcher } from './store/fetcher'
 
-export default defineComponent({
-    setup() {
-        const store = useStoreFetcher()
+const store = useStoreFetcher()
 
-        const fake = () => {
-            console.log('fake')
-            
-            store.openLoading()
-            setTimeout(() => {
-                store.closeLoading()
-            }, 3000)
+const fake = () => {
+    console.log('fake')
 
-
+    store.openLoading()
+    setTimeout(() => {
+        store.closeLoading()
+        let num = Math.random()
+        if (num > 0.333) {
+            store.openModal(true, '成功', 'あなたの運勢は大吉です！')
+        } else {
+            store.openModal(false, '失敗', 'なんと、あなたの運勢は凶です')
         }
-        return {
-            fake
-        }
-    },
-})
+    }, 1000)
+}
 </script>
