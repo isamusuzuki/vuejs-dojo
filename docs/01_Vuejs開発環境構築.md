@@ -136,3 +136,16 @@ npm i -D @vue/compiler-sfc
 ```
 
 ※ SFC = Single File Components 単一ファイルコンポーネント
+
+## 06. Vueファイルの定義ファイルを置いておく
+
+src/shims-vue.d.ts
+
+```javascript
+/* eslint-disable */
+declare module '*.vue' {
+    import type { DefineComponent } from 'vue'
+    const component: DefineComponent<{}, {}, any>
+    export default component
+}
+```
