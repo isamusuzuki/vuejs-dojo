@@ -7,18 +7,9 @@
     </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { useStoreKeyword } from './store/keyword'
 
-export default defineComponent({
-    setup() {
-        const { keyword } = storeToRefs(useStoreKeyword())
-
-        return {
-            keyword
-        }
-    }
-})
+const { keyword } = storeToRefs(useStoreKeyword())
 </script>

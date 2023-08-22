@@ -3,21 +3,11 @@
     <h2 class="subtitle block">{{  reverse }}</h2>
 </template>
 
-<script lang="ts">
-import { computed, defineComponent } from 'vue'
+<script setup lang="ts">
+import { computed } from 'vue'
 import { useStoreKeyword } from './store/keyword'
 
-export default defineComponent({
-    setup() {
-        const storeKeyword = useStoreKeyword()
-
-        const keyword = computed(() => storeKeyword.keyword)
-
-        const reverse = computed(() => storeKeyword.reverse)
-
-        return {
-            keyword, reverse
-        }
-    }
-})
+const storeKeyword = useStoreKeyword()
+const keyword = computed(() => storeKeyword.keyword)
+const reverse = computed(() => storeKeyword.reverse)
 </script>
