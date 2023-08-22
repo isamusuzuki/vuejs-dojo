@@ -6,7 +6,11 @@
     </a>
     <section class="section">
         <div class="container">
-            <fake-button></fake-button>
+            <div class="columns">
+                <div class="column is-4 is-offset-1">
+                    <fake-button></fake-button>
+                </div>
+            </div>
         </div>
     </section>
     <now-loading></now-loading>

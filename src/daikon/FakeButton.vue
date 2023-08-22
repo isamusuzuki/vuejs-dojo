@@ -1,6 +1,6 @@
 <template>
     <div class="field mt-4">
-        <button class="button is-primary" @click="fake">クリック</button>
+        <button class="button is-primary is-large" @click="fake">クリック</button>
     </div>
 </template>
 

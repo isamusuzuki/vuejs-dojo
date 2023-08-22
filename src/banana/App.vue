@@ -16,7 +16,11 @@
     </section>
     <section class="section">
         <div class="container">
-            <input-keyword></input-keyword>
+            <div class="columns">
+                <div class="column is-4 is-offset-1">
+                    <input-keyword></input-keyword>
+                </div>
+            </div>
         </div>
     </section>
 </template>
