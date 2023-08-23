@@ -2,13 +2,15 @@
 
 Vue.js 道場
 
-作成日 2023/08/10
+作成日 2023/08/10、更新日 2023/08/23
 
 ## 01. ファイル・フォルダ構成
 
 ```text
 --vuejs-dojo/
-    |--docs/    ... ドキュメントの置き場
+    |--docs/
+    |   |--Vuejs開発環境  ... セットアップとモジュール選定
+    |   `--Vuejs仕様まとめ ... ソースコードを読むのに必要最低限な知識
     |--public/  ... コンパイル後のJavaScriptファイルの置き場
     `--src/     ... コンパイル前のTypeScriptファイルの置き場
 ```
@@ -16,9 +18,18 @@ Vue.js 道場
 ## 02. Node.js 開発環境
 
 - OS は、Ubuntu または WSL Ubuntu を前提とし、Windows 上での動作は対象外とする
+- Node.js がインストール済みであることとする
 - エディタは、Visual Studio Code の利用を想定する
 
 ```bash
+cd ~/vuejs-dojo
+
+# Node.jsのバージョン確認
+node -v
+# => v18.17.1
+npm -v
+# => 9.6.7
+
 # パッケージのインストール
 npm install
 
