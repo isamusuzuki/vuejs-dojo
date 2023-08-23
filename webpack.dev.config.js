@@ -10,6 +10,7 @@ module.exports = {
         daikon: './src/daikon.ts',
         edamame: './src/edamame.ts',
         fennel: './src/fennel.ts',
+        garlic: './src/garlic.ts',
     },
     output: {
         path: path.resolve(__dirname, 'public'),
