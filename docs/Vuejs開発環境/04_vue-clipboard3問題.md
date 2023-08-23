@@ -1,10 +1,10 @@
-# vue-clipboard3をインポートするとエラーが出る
+# vue-clipboard3 をインポートするとエラーが出る
 
 作成日 2023/08/23
 
-## 01. vue-clipboard3とは
+## 01. vue-clipboard3 とは
 
-下線部分をクリックすると、その文言がPCのクリップボードにコピーされるようにしたい
+下線部分をクリックすると、その文言が PC のクリップボードにコピーされるようにしたい
 
 それを実現するために、以下のモジュールを利用する
 
@@ -20,11 +20,11 @@ import useClipboard from 'vue-clipboard3'
 const { toClipboard } = useClipboard()
 
 const copy = async () => {
-    await toClipboard(props.target)
+  await toClipboard(props.target)
 }
 ```
 
-1行目の`'vue-clipboard3'`に赤い波線が登場して、以下のメッセージが表示される
+1 行目の`'vue-clipboard3'`に赤い波線が登場して、以下のメッセージが表示される
 
 ```text
 「現在のファイルは CommonJS モジュールであり、このインポートでは 'require' 呼び出しが生成されますが、
@@ -36,12 +36,15 @@ const copy = async () => {
 
 ## 03. 問題解決
 
-このリポジトリの`package.json`に以下を追加することでも解決できたが、
+このリポジトリの`package.json`に`"type": "module",` 行を追加してみる
 
-反対に、`node_modules/vue-clipboard3/package.json` から同じものを削除することでも解決できた
+すると、Webpack の設定ファイルが CommonJS 形式で書かれているため、npm スクリプトが動かなくなってしまう
 
-```json
-{
-      "type": "module",
-}
+```text
+ReferenceError: require is not defined in ES module scope, you can use import instead
+This file is being treated as an ES module because it has a '.js' file extension
+and '/home/isamu/vuejs-dojo/package.json' contains "type": "module".
+To treat it as a CommonJS script, rename it to use the '.cjs' file extension.
 ```
+
+代わりに、`node_modules/vue-clipboard3/package.json` から `"type": "module",`行を削除することで解決できた
