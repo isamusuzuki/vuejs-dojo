@@ -8,6 +8,7 @@ module.exports = {
         banana: './src/banana.ts',
         coconut: './src/coconut.ts',
         daikon: './src/daikon.ts',
+        edamame: './src/edamame.ts',
     },
     output: {
         path: path.resolve(__dirname, 'public'),
