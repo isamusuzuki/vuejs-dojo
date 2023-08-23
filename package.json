@@ -8,7 +8,7 @@
     "build": "webpack --config=webpack.prod.config.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Isamu Suzuki",
   "license": "ISC",
   "devDependencies": {
     "@eslint/create-config": "^0.4.6",
@@ -23,6 +23,7 @@
     "ts-loader": "^9.4.4",
     "typescript": "^5.1.6",
     "vue": "^3.3.4",
+    "vue-clipboard3": "^2.0.0",
     "vue-loader": "^17.2.2",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
