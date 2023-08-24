@@ -1,12 +1,12 @@
 # vue-clipboard3 をインポートするとエラーが出る
 
-作成日 2023/08/23
+作成日 2023/08/23、更新日 2023/08/24
 
 ## 01. vue-clipboard3 とは
 
-下線部分をクリックすると、その文言が PC のクリップボードにコピーされるようにしたい
+下線部分をクリックすると、その文言がパソコンのクリップボードに格納されて、どこにでもペーストできるようにしたい
 
-それを実現するために、以下のモジュールを利用する
+それを実現するために、vue-clipboard3 を利用する
 
 [vue-clipboard3 - npm](https://www.npmjs.com/package/vue-clipboard3)
 
@@ -34,7 +34,7 @@ const copy = async () => {
 フィールド '"type": "module"' を '/home/isamu/vuejs-dojo/package.json' に追加します。ts(1479)
 ```
 
-## 03. 問題解決
+## 03. 試行錯誤 1
 
 このリポジトリの`package.json`に`"type": "module",` 行を追加してみる
 
@@ -47,4 +47,8 @@ and '/home/isamu/vuejs-dojo/package.json' contains "type": "module".
 To treat it as a CommonJS script, rename it to use the '.cjs' file extension.
 ```
 
-代わりに、`node_modules/vue-clipboard3/package.json` から `"type": "module",`行を削除することで解決できた
+## 04. 試行錯誤 2
+
+代わりに、`node_modules/vue-clipboard3/package.json` から `"type": "module",`行を削除してみたら、エラーが表示されなくなった
+
+とりあえずこれでよしとする

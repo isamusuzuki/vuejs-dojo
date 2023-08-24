@@ -1,29 +1,19 @@
-# Vuex の後継の Pinia とは
+# Vuex から Pinia への移行
 
-作成日 2023/08/18
+作成日 2023/08/24
 
-## 01. 紹介記事を読む
+## 01. Vuex の後継の Pinia とは
 
-[Vue.js Pinia を使って状態管理(データの共有)を行ってみよう](https://reffect.co.jp/vue/vue-pinia/)
+紹介記事 => [Vue.js Pinia を使って状態管理(データの共有)を行ってみよう](https://reffect.co.jp/vue/vue-pinia/)
 
 > Vue.js では Global State Management ライブラリとして Vuex が有名ですが Vuex の後継として新たに Pinia という Store ライブラリが登場し Vue.js で新しくプロジェクトを作成する場合は Pinia を利用することが推奨されています。\
 > ネット上には Vuex に関する記事が豊富に存在すると思いますがこれから Vue.js を学習するのであれば Vuex は気にせず Pinia を利用してください。
 
-## 02. 公式サイトを探す
+公式サイト => [Pinia | The intuitive store for Vue.js](https://pinia.vuejs.org/)
 
-[pinia - npm](https://www.npmjs.com/package/pinia)
+公式ドキュメント => [Introduction](https://pinia.vuejs.org/introduction.html)
 
-[vuejs/pinia: 🍍 Intuitive, type safe, light and flexible Store for Vue using the composition api with DevTools support](https://github.com/vuejs/pinia)
-
-インストール => `npm install pinia`
-
-[Pinia | The intuitive store for Vue.js](https://pinia.vuejs.org/)
-
-## 03. 公式ドキュメントを読む
-
-[Introduction](https://pinia.vuejs.org/introduction.html)
-
-### 03a. サンプルコード
+## 02. サンプルコード
 
 stores/counter.js
 
@@ -42,11 +32,11 @@ export const useCounterStore = defineStore('counter', {
 })
 ```
 
-some Component file
+ストアを利用するコンポーネントファイル
 
 ```html
 <script setup>
-  import { useCounterStore } from '@/stores/counter'
+  import { useCounterStore } from './stores/counter'
 
   const counter = useCounterStore()
 
@@ -60,7 +50,7 @@ some Component file
 </template>
 ```
 
-main.ts <= Introduction には書いてなかったが、おそらく必要
+main.ts
 
 ```javascript
 import { createApp } from 'vue'
@@ -72,7 +62,7 @@ app.use(createPinia())
 app.mount('#app')
 ```
 
-### 03b. Vuex 4.x との比較
+### 03. Vuex との違い
 
 - `mutations` はもう存在しない。しばしば極端に冗長であった
 - TypeScript をサポートするための複雑なラッパーを作成する必要はもうない
@@ -81,7 +71,7 @@ app.mount('#app')
 - ネストされたモジュール構造はもうない
 - 名前空間を持ったモジュールはもうない
 
-## 04. マイグレーションガイドを読む
+### マイグレーションガイドを読む
 
 [Migrating from Vuex ≤4 | Pinia](https://pinia.vuejs.org/cookbook/migration-vuex.html)
 
