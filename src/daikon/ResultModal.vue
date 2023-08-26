@@ -26,10 +26,10 @@
 
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { useStoreFetcher } from './store/fetcher'
+import { useStoreModal } from './store/modal'
 
-const { modalActive, modalIcon, modalTitle, modalBody } = storeToRefs(useStoreFetcher())
+const { modalActive, modalIcon, modalTitle, modalBody } = storeToRefs(useStoreModal())
 
-const { closeModal } = useStoreFetcher()
+const { closeModal } = useStoreModal()
 
 </script>

@@ -18,9 +18,9 @@
 
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { useStoreFetcher } from './store/fetcher'
+import { useStoreLoading } from './store/loading'
 
-const { loadingActive } = storeToRefs(useStoreFetcher())
+const { loadingActive } = storeToRefs(useStoreLoading())
 </script>
 
 <style>
