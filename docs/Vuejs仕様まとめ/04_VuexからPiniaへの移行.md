@@ -1,6 +1,6 @@
 # Vuex から Pinia への移行
 
-作成日 2023/08/24
+作成日 2023/08/24、更新日 2023/08/27
 
 ## 01. Vuex の後継の Pinia とは
 
@@ -80,3 +80,42 @@ app.mount('#app')
 - `rootState`,`rootGetters`を使っている場合は、直接他のストアをインポートしている形に変更
 - すべての`actions`から、最初の引数の`context`を削除。`this`でアクセス可能
 - `mutations`は、`actions`に書き換える。その時、最初の引数の `state` を削除。`this`でアクセス可能
+
+## 04. state でオブジェクトを使いたい場合
+
+どう型を定義すればよいのか気になった
+
+=> interface を使って state の戻り値に型注釈を書くことができる
+
+```javascript
+interface State {
+  userList: UserInfo[]
+  user: UserInfo | null
+}
+
+export const useUserStore = defineStore('user', {
+  state: (): State => {
+    return {
+      userList: [],
+      user: null,
+    }
+  },
+})
+
+interface UserInfo {
+  name: string
+  age: number
+}
+```
+
+アロー関数の戻り値に型注釈を書く方法は以下の通り
+
+```javascript
+const 変数名 = (引数: 引数の型注釈): 戻り値の型注釈 => {
+  // 処理内容
+}
+
+const increment = (num: number): number => {
+  return num + 1
+}
+```
