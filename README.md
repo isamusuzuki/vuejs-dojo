@@ -4,7 +4,7 @@ Vue.js 道場（Vue.js v3 + TypeScript + Webpack で開発したコードサン�
 
 作成日 2023/08/10、更新日 2023/08/24
 
-![Screenshot](./public/Screenshot.png)
+![Screenshot](./Screenshot.png)
 
 ## 01. ファイル・フォルダ構成
 
