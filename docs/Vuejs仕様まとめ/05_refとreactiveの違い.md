@@ -1,6 +1,6 @@
 # ref と reactive の違い
 
-作成日 2023/08/24
+作成日 2023/08/24、更新日 2023/08/28
 
 ## 01. 仕様まとめ
 
@@ -55,4 +55,13 @@ export useExcelUpload = () => {
         fileDropped,
     }
 }
+```
+
+## 03. ref に型注釈を書きたい場合
+
+```javascript
+import { ref } from 'vue'
+import type { Ref } from 'vue'
+
+const targetFile: Ref<File | null> = ref(null)
 ```

@@ -71,17 +71,23 @@ const dragging = (n: number) => {
 
 const fileSelected = (event: Event) => {
     const target = event.target as HTMLInputElement
-    targetFile.value = (target.files as FileList)[0]
-    selectedFilename.value = targetFile.value.name
-    buttonDisabled.value = false
+    const files: FileList | null = target.files
+    if (files && files.length > 0) {
+        targetFile.value = files[0]
+        selectedFilename.value = files[0].name
+        buttonDisabled.value = false
+    }
 }
 
 const fileDropped = (event: DragEvent) => {
     isDragging.value = false
     if (event.dataTransfer) {
-        targetFile.value = event.dataTransfer.files[0]
-        selectedFilename.value = targetFile.value.name
-        buttonDisabled.value = false
+        const files: FileList = event.dataTransfer.files
+        if (files.length > 0) {
+            targetFile.value = files[0]
+            selectedFilename.value = files[0].name
+            buttonDisabled.value = false
+        }
     }
 }
 
