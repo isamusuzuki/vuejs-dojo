@@ -12,6 +12,7 @@ module.exports = {
         fennel: './src/fennel.ts',
         garlic: './src/garlic.ts',
         hakusai: './src/hakusai.ts',
+        ingen: './src/ingen.ts',
     },
     output: {
         path: path.resolve(__dirname, 'public'),
