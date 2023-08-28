@@ -1,7 +1,7 @@
 <template>
     <span
         style="text-decoration: underline; cursor: pointer"
-        @click="copy"
+        @click="copyWord"
         v-text="target"
     ></span>
     <span v-if="showCopy">copy</span>
@@ -22,7 +22,7 @@ export default defineComponent({
         const showCopy = ref(false)
         const { toClipboard } = useClipboard()
         
-        const copy = async () => {
+        const copyWord = async () => {
             try {
                 await toClipboard(props.target)
                 showCopy.value = true
@@ -36,7 +36,7 @@ export default defineComponent({
         
         return {
             showCopy,
-            copy,
+            copyWord,
         }
     },
 })

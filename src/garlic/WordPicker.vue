@@ -2,24 +2,24 @@
     <div class="block">
         <div class="subtitle">以下のどれかをクリックします</div>
         
-        <copy-2-parent target="僕たち男の子" @childEvent="setKeyword"></copy-2-parent>
+        <copy-2-parent target="僕たち男の子" @childEvent="addWord"></copy-2-parent>
         &nbsp;
-        <copy-2-parent target="君たち女の子" @childEvent="setKeyword"></copy-2-parent>
+        <copy-2-parent target="君たち女の子" @childEvent="addWord"></copy-2-parent>
         &nbsp;
-        <copy-2-parent target="ヘイヘイヘイ ヘイヘイヘイ" @childEvent="setKeyword"></copy-2-parent>
+        <copy-2-parent target="ヘイヘイヘイ ヘイヘイヘイ" @childEvent="addWord"></copy-2-parent>
         &nbsp;
-        <copy-2-parent target="おいで遊ぼう僕らの世界へ" @childEvent="setKeyword"></copy-2-parent>
+        <copy-2-parent target="おいで遊ぼう僕らの世界へ" @childEvent="addWord"></copy-2-parent>
     </div>
-    <div class="block">
+    <div class="block" style="width: 600px">
         <div class="field">
             <div class="label">
-                <input
-                    class="input"
-                    type="text"
+                <textarea
+                    class="textarea"
+                    rows="6"
                     placeholder="入力不可、選択のみ可"
                     disabled
-                    v-model="keyword"
-                />
+                    v-model="pasteOnly"
+                ></textarea>
             </div>
         </div>
     </div>
@@ -34,15 +34,19 @@ export default defineComponent({
         Copy2Parent,
     },
     setup() {
-        const keyword = ref('')
+        const pasteOnly = ref('')
 
-        const setKeyword = (word: string) => {
-            keyword.value = word
+        const addWord = (word: string) => {
+            if (pasteOnly.value === '') {
+                pasteOnly.value = word
+            } else {
+                pasteOnly.value = pasteOnly.value + '\n' + word
+            }
         }
 
         return {
-            keyword,
-            setKeyword,
+            pasteOnly,
+            addWord,
         }
     },
 })

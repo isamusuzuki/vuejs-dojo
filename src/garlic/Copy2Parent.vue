@@ -1,7 +1,7 @@
 <template>
     <span
         style="text-decoration: underline; cursor: pointer"
-        @click="copy"
+        @click="copyWord"
         v-text="target"
     ></span>
 </template>
@@ -17,12 +17,12 @@ export default defineComponent({
         },
     },
     setup(props, context) {
-        const copy = () => {
+        const copyWord = () => {
             context.emit('childEvent', props.target)
         }
 
         return {
-            copy,
+            copyWord,
         }
     },
 })
