@@ -11,5 +11,5 @@
 </template>
 
 <script setup lang="ts">
-const pageTitle = 'Bacon'
+const pageTitle = 'Beef'
 </script>

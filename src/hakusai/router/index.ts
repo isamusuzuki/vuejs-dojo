@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import ApplePage from '../pages/ApplePage.vue'
-import BaconPage from '../pages/BaconPage.vue'
+import BeefPage from '../pages/BeefPage.vue'
 import CandyPage from '../pages/CandyPage.vue'
 
 export default createRouter({
@@ -8,7 +8,7 @@ export default createRouter({
     routes: [
         { path: '/', redirect: '/apple' },
         { path: '/apple', name: '1', component: ApplePage },
-        { path: '/bacon', name: '2', component: BaconPage },
+        { path: '/beef', name: '2', component: BeefPage },
         { path: '/candy', name: '3', component: CandyPage },
     ]
 })

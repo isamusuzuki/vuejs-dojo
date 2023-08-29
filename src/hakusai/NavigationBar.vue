@@ -13,7 +13,7 @@
                             <router-link to="/apple">Apple</router-link>
                         </li>
                         <li v-bind:class="{ 'is-active': pageActive2 }">
-                            <router-link to="/bacon">Bacon</router-link>
+                            <router-link to="/beef">Beef</router-link>
                         </li>
                         <li v-bind:class="{ 'is-active': pageActive3 }">
                             <router-link to="/candy">Candy</router-link>
