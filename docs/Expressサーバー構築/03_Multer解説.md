@@ -15,13 +15,22 @@
 ```javascript
 const express = require('express')
 const multer = require('multer')
-const upload = multer({ dest: 'uploads/' })
+const upload = multer({dest: 'temp/'})
 
 const app = express()
 
-app.post('/upload', upload.single('file'), function (req, res) {
-    res.send(req.file.originalname + 'ファイルのアップロードが完了しました。')
+app.post('/api/ingen/upload', upload.single('uploadFile'), (req, res) =>{
+    res.json({success: true, message: `${req.file.originalname}のアップロードが完了しました`})
 })
+```
+
+tempフォルダには、ランダムな名前でファイル名が生成されている
+
+```text
+vuejs-dojo/
+    `--temp/
+        |--30cab1880d8d691ff83cdfdec7dd701a
+        `--332340d007a2a0e3fb338f969c1a582c
 ```
 
 ## 03. ファイル情報の取得
@@ -39,7 +48,7 @@ app.post('/upload', upload.single('file'), function (req, res) {
 | extension    | ファイルの拡張子                                            |
 | size         | ファイルサイズ(byte)                                        |
 
-`req.body` には、フォームのその他のテキスト情報が格納されている
+`req.body` には、フォームのテキスト情報が格納されている
 
 ## 04. アップロードしたファイル名と同じファイル名で保存させる
 
