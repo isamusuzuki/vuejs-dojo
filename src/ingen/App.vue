@@ -7,15 +7,22 @@
     <section class="section">
         <drop-zone></drop-zone>
     </section>
+    <now-loading></now-loading>
+    <result-modal></result-modal>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 import DropZone from './DropZone.vue'
+import NowLoading from './NowLoading.vue'
+import ResultModal from './ResultModal.vue'
+
 
 export default defineComponent({
     components: {
         DropZone,
+        NowLoading,
+        ResultModal,
     },
 })
 </script>

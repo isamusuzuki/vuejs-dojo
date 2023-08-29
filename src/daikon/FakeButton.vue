@@ -12,8 +12,6 @@ const storeLoading = useStoreLoading()
 const storeModal = useStoreModal()
 
 const fake = () => {
-    console.log('fake')
-
     storeLoading.openLoading()
     setTimeout(() => {
         storeLoading.closeLoading()

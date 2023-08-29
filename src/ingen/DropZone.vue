@@ -7,7 +7,10 @@
         :class="{ 'has-background-grey-light': isDragging }"
     >
         <h1 class="title">ファイルアップロードのテスト</h1>
-        <h2 class="subtitle">この枠にファイルをドラッグ＆ドロップ可能</h2>
+        <h2 class="subtitle">
+            この枠にファイルをドラッグ＆ドロップ可能<br>
+            開発サーバーで「アップロード」ボタンをクリックするとエラーになります
+        </h2>
         <div class="level">
             <div class="level-left">
                 <div class="level-item">
@@ -53,8 +56,14 @@
 </template>
 
 <script setup lang="ts">
+import axios from 'axios'
 import { ref } from 'vue'
 import type { Ref } from 'vue'
+import { useStoreLoading } from './store/loading'
+import { useStoreModal } from './store/modal'
+
+const storeLoading = useStoreLoading()
+const storeModal = useStoreModal()
 
 const targetFile: Ref<File | null> = ref(null)
 const selectedFilename = ref('')
@@ -92,6 +101,28 @@ const fileDropped = (event: DragEvent) => {
 }
 
 const fileUpload = () => {
-    console.log(targetFile.value)
+    if (targetFile.value) {
+        storeLoading.openLoading()
+        let formData = new FormData()
+        formData.append('uploadFile', targetFile.value)        
+        axios
+            .post('/api/ingen/upload', formData, {
+                headers: {'Content-Type': 'multipart/form-data'}
+            })
+            .then((response) => {
+                if (response.data.success) {
+                    storeModal.openModal(true, '成功', response.data.message)
+                } else {
+                    storeModal.openModal(false, '失敗', response.data.message)
+                }
+                storeLoading.closeLoading()
+            })
+            .catch((error) => {
+                storeModal.openModal(false, '失敗', error)
+                storeLoading.closeLoading()
+            })
+    } else {
+        storeModal.openModal(false, '失敗', 'ファイルを添付してください')
+    }
 }
 </script>
