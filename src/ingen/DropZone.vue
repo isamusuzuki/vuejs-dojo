@@ -55,74 +55,15 @@
     </div>
 </template>
 
-<script setup lang="ts">
-import axios from 'axios'
-import { ref } from 'vue'
-import type { Ref } from 'vue'
-import { useStoreLoading } from './store/loading'
-import { useStoreModal } from './store/modal'
+<script lang="ts">
+import { defineComponent } from 'vue'
+import useDropZone from './useDropZone'
 
-const storeLoading = useStoreLoading()
-const storeModal = useStoreModal()
-
-const targetFile: Ref<File | null> = ref(null)
-const selectedFilename = ref('')
-const buttonDisabled = ref(true)
-const isDragging = ref(false)
-
-const dragging = (n: number) => {
-    if (n === 1) {
-        isDragging.value = true
-    } else {
-        isDragging.value = false
-    }
-}
-
-const fileSelected = (event: Event) => {
-    const target = event.target as HTMLInputElement
-    const files: FileList | null = target.files
-    if (files && files.length > 0) {
-        targetFile.value = files[0]
-        selectedFilename.value = files[0].name
-        buttonDisabled.value = false
-    }
-}
-
-const fileDropped = (event: DragEvent) => {
-    isDragging.value = false
-    if (event.dataTransfer) {
-        const files: FileList = event.dataTransfer.files
-        if (files.length > 0) {
-            targetFile.value = files[0]
-            selectedFilename.value = files[0].name
-            buttonDisabled.value = false
+export default defineComponent({
+    setup() {
+        return {
+            ...useDropZone()
         }
     }
-}
-
-const fileUpload = () => {
-    if (targetFile.value) {
-        storeLoading.openLoading()
-        let formData = new FormData()
-        formData.append('uploadFile', targetFile.value)        
-        axios
-            .post('/api/ingen/upload', formData, {
-                headers: {'Content-Type': 'multipart/form-data'}
-            })
-            .then((response) => {
-                if (response.data.success) {
-                    storeModal.openModal(true, '成功', response.data.message)
-                } else {
-                    storeModal.openModal(false, '失敗', response.data.message)
-                }
-                storeLoading.closeLoading()
-            })
-            .catch((error) => {
-                storeModal.openModal(false, '失敗', error)
-                storeLoading.closeLoading()
-            })
-    } else {
-        storeModal.openModal(false, '失敗', 'ファイルを添付してください')
-    }
-}
+})
 </script>
