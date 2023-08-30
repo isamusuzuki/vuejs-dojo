@@ -1,8 +1,8 @@
 # vuejs-dojo 概要
 
-Vue.js 道場（Vue.js v3 + TypeScript + Webpack で開発したコードサンプル集）
+Vue.js 道場（Vue.js v3 + TypeScript + Webpack サンプルコード集）
 
-作成日 2023/08/10、更新日 2023/08/29
+作成日 2023/08/10、更新日 2023/08/30
 
 ![Screenshot](./Screenshot.png)
 
