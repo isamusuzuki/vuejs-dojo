@@ -2,7 +2,7 @@
 
 Vue.js 道場（Vue.js v3 + TypeScript + Webpack サンプルコード集）
 
-作成日 2023/08/10、更新日 2023/08/30
+作成日 2023/08/10、更新日 2023/09/08
 
 ![Screenshot](./Screenshot.png)
 
@@ -41,13 +41,12 @@ npm install
 
 ### インストールしておくべき Visual Studio Code の機能拡張
 
-- indent-rainbow
-- IntelliCode
 - ESLint
-- markdownlint
 - Prettier
 - TypeScript Vue Plugin (Volar)
 - Vue Language Features (Volar)
+
+`Ctrl + Shift + P`でコマンドパレットを開き、`Extensions: Show Recommended Extensions`コマンドを選択すると、上のリストが表示される
 
 ## 03. スクリプト実行
 
